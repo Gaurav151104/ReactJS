@@ -1,12 +1,18 @@
 import React from "react";
 
 import Card from "./components/Card";
-const App = () => {
-  return (
-    <div>
-      <div className="parent">
+import User from "./components/User";
 
-      </div>
+
+const App = () => {
+
+const arr = [10,20,30,40]
+
+  return (
+    <div className="parent">
+     {arr.map(function(elem){
+      return <h1>{elem}</h1>
+     })}
     </div>
   );
 };
