@@ -1,16 +1,124 @@
-# React + Vite
+# Job Cards – React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React project that displays job listings using **reusable components, props, and the `map()` function**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Displays multiple job cards
+* Reusable `Card` component
+* Uses React **Props** to pass job data
+* Uses `map()` to render multiple cards
+* Company logos
+* Job title, level, salary and location
+* Save and Apply buttons
+* Bookmark icon using `lucide-react`
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React.js
+* JavaScript
+* JSX
+* CSS
+* Lucide React
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```text
+src/
+│
+├── components/
+│   └── Card.jsx
+│
+├── App.jsx
+└── main.jsx
+```
+
+## How It Works
+
+The job details are stored in an array inside `App.jsx`.
+
+```jsx
+const jobs = [
+  {
+    brandLogo: "...",
+    name: "Google",
+    datePosted: "10 weeks ago",
+    post: "Software Engineer",
+    tag: "Junior Level",
+    pay: "$35/hour",
+    location: "Mumbai, India"
+  }
+];
+```
+
+The `map()` function loops through the array and sends each job's data to the `Card` component using **props**.
+
+```jsx
+{jobs.map(function(elem) {
+  return (
+    <Card
+      company={elem.name}
+      pos={elem.post}
+      tag1={elem.tag}
+      tag2={elem.datePosted}
+      pr={elem.pay}
+      loc={elem.location}
+      logo={elem.brandLogo}
+    />
+  );
+})}
+```
+
+The `Card` component receives the data through `props`:
+
+```jsx
+<h3>{props.company}</h3>
+<h2>{props.pos}</h2>
+<img src={props.logo} />
+```
+
+### Data Flow
+
+```text
+jobs array
+     ↓
+   map()
+     ↓
+  Card Component
+     ↓
+    Props
+     ↓
+ Display Job Card
+```
+
+## Installation
+
+Clone the project and install dependencies:
+
+```bash
+npm install
+```
+
+Install Lucide React:
+
+```bash
+npm install lucide-react
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## Key React Concepts
+
+1. **Components** – Creates reusable UI.
+2. **Props** – Passes data from parent to child.
+3. **map()** – Renders multiple components from an array.
+4. **JSX** – Writes HTML-like syntax inside JavaScript.
+5. **Array of Objects** – Stores multiple job details.
+
+## Author
+
+Gaurav Nalavade
