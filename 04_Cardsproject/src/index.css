@@ -3,7 +3,6 @@
   padding: 0px;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
 }
 
 html,
@@ -13,10 +12,13 @@ body {
 }
 
 .parent {
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   background-color: #111;
   padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 29px;
   
 }
 
